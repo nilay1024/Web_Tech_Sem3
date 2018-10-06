@@ -7,9 +7,10 @@
 <body>
 
 
-	<font color="#146827"><h2 align="center">	<!-- <img src="logo.jpg" height = "50px" width="250px"> --> HAN <br><i>An interactive way to learn Data Structures</i></h2></font>
+	<h2 align="center">	<font color="#146827"> <img src="logo.jpg" align="left" height = "50px" width="250px">
+	   <br><i><br></i></h2></font>
 	<div class="navbar">
-	  <img src="logo.jpg" height="45px" width="220px">
+<!-- 	  <img src="logo.jpg" height="45px" width="220px"> -->
 	  <a href="front.html">Home</a>
 
 	  <a href="#news">News</a>
@@ -27,6 +28,46 @@
 	  <a href="feedback.html">Feedback</a>
 	</div>
 	<img src="home.jpg" height="650px" width="600px">
+	<!-- <br><br> -->
+	<img src="insertEx.bmp" id = "holder1">
+	<div id = "div1">Image being displayed: insertEx.bmp</div>
+
+	<button onclick=myfunction(1)>Image 1 </button>
+	<button onclick=myfunction(2)>Image 2 </button>
+	<button onclick=myfunction(3)>Image 3 </button>
+
+	<script type="text/javascript">
+		function myfunction(a)
+		{
+			if (a === 1) {
+				document.getElementById("holder1").setAttribute("src", "insertEx.bmp")
+				document.getElementById("div1").innerHTML = "Image being displayed: insertEx.bmp"
+			} else if (a === 2) {
+				document.getElementById("holder1").setAttribute("src", "Linkedlist_insert_middle.png")
+				document.getElementById("div1").innerHTML = "Image being displayed: Linkedlist_insert_middle.png"
+			}
+			else{
+				document.getElementById("holder1").setAttribute("src", "undirectedgraph.png")
+				document.getElementById("div1").innerHTML = "Image being displayed: undirectedgraph.png"
+			}
+		}
+	</script>
+
+<!-- 	<div class="slider-holder">
+        <span id="slider-image-1"></span>
+        <span id="slider-image-2"></span>
+        <span id="slider-image-3"></span>
+        <div class="image-holder">
+            <img src="insertEx.bmp" class="slider-image" />
+            <img src="Linkedlist_insert_middle.png" class="slider-image" />
+            <img src="undirectedgraph.png" class="slider-image" />
+        </div>
+        <div class="button-holder">
+            <a href="#slider-image-1" class="slider-change"></a>
+            <a href="#slider-image-2" class="slider-change"></a>
+            <a href="#slider-image-3" class="slider-change"></a>
+        </div>
+    </div> -->
 
 
 </body>
