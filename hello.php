@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Feedback</title>
+	<link rel="stylesheet" href="home1.css">
 </head>
 <body>
+	<h2 align="center">	<font color="#146827"> <img src="logo.jpg" align="left" height = "50px" width="250px">
+	   <br><i><br></i></h2></font>
+	<div class="navbar">
+<!-- 	 change  <img src="logo.jpg" height="45px" width="220px"> -->
+	  <a href="front_page.html">Home</a>
 
+	  <a href="#news">News</a>
+	  <a href="#">About Us</a>
+	  <div class="dropdown">
+	    <button class="dropbtn">Dropdown 
+	      <i class="fa fa-caret-down"></i>
+	    </button>
+	    <div class="dropdown-content">
+	      <a href="Linkedlist_insert_middle.png">Linked list</a>
+	      <a href="undirectedgraph.png">Graphs</a>
+	      <a href="insertEx.bmp">Trees</a>
+	    </div>
+	  </div> 
+	  <a href="home.php">Feedback</a>
+	</div>
+	<br>
 <form name = "feedback-form"  method="post" id = "feedback-form">
 	First Name: <input type="text" name="name"  required><br>
 	Last Name: <input type="text" name="name1"> <br>
