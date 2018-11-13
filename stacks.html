@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HAN - An interactive way to learn data structures</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="cardStyle.css">
+        <link rel="stylesheet" href="rowColumn.css">
+        <link rel="stylesheet" href="bodystyle.css">
+        <link rel="stylesheet" href="home1.css">
+    </head>
+    <!--<body background = "149042-636270893746801661-16x9.jpg" style="background-color: lightgray;"> -->
+    <body class="body">
+        <div class="content">
+            <h2 align="center">	<font color="#146827"> <img src="logo.jpg" align="left" height = "50px" width="250px">
+            <br><i><br></i></font></h2>
+            <div class="navbar">
+              <a href="front_page.html">Home</a>
+              <a href="#news">News</a>
+              <a href="#">About Us</a>
+              <div class="dropdown">
+                <button class="dropbtn">Dropdown
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="linked_list.html">Linked list</a>
+                  <a href="graphs.html">Graphs</a>
+                  <a href="trees.html">Trees</a>
+                </div>
+              </div>
+              <a href="feedback.html">Feedback</a>
+            </div>
+
+            <canvas id="mycanvas" width="578" height="200">
+                <script>
+                    var canvas = document.getElementById('mycanvas');
+                    var context = canvas.getContext('2d');
+
+                    context.beginPath();
+                    // context.arc(canvas.width/2,canvas.height/2,45,0,4*Math.PI,true);
+                    // context.lineWidth=3;
+                    // context.strokeStyle='red';
+                    // context.stroke();
+                    context.translate(200,50);
+                    context.scale(2,2);
+                    context.rect(0,0,100,50);
+                    context.fillStyle='green';
+                    context.fill();
+                    context.strokeStyle='blue';
+                    context.stroke();
+                    windows.animation
+                </script>
+            </canvas>
+        </div>
+    </body>
+</html>
