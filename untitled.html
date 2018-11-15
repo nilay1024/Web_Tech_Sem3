@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id = "div1"><!-- Initial text -->
+		<canvas id="myCanvas" width="1000" height="150" style="border:1px solid #d3d3d3;">
+		Your browser does not support the HTML5 canvas tag.</canvas>
+	</div> <br><br>
+	<input type="Text" name="textbox" id="textbox">
+	</input>
+	<button onclick="push()" id="push_a">Push</button>
+	<button onclick="function1()">Increase size by 1</button>
+	<button onclick="create_stack(5)">Create Stack</button>
+	<script type="text/javascript">
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+		ctx.rect(20, 20, 150, 100);
+		ctx.stroke();
+		var size = 0;
+		var current = 0
+		function push()
+		{
+			var num = document.getElementById("textbox").value;
+			ctx.fillText(num, 20+75+(150*current), 70);
+			current = current+1;
+		}
+		function create_stack(n){
+				size = n;
+				for (var i = n; i > 0; i--) {
+					var c = document.getElementById("myCanvas");
+					var ctx = c.getContext("2d");
+					ctx.rect(20+150*(i-1), 20, 150, 100);
+					ctx.stroke();
+					// ctx.fillText("24", 20+75, 70);
+				}
+		}
+		function function1(){
+				// size = size+1;
+				// for (var i = size; i >= 0; i--) {
+				// 	var c = document.getElementById("myCanvas");
+				// 	var ctx = c.getContext("2d");
+				// 	ctx.rect(20+150*(i-1), 20, 150, 100);
+				// 	ctx.stroke();
+				// 	// ctx.fillText("24", 20+75, 70);
+				// }
+					var c = document.getElementById("myCanvas");
+					var ctx = c.getContext("2d");
+					ctx.rect(20+150*(size), 20, 150, 100);
+					ctx.stroke();
+					size = size+1
+				// var c = document.getElementById("myCanvas");
+				// var ctx = c.getContext("2d");
+				// ctx.rect(20+150*n, 20, 150, 100);
+				// ctx.stroke();
+			// document.getElementById("div1").innerHTML = "Modified Text"
+		}
+	</script>
+</body>
+</html>
