@@ -11,26 +11,41 @@
 	<input type="Text" name="textbox" id="textbox">
 	</input>
 	<button onclick="push()" id="push_a">Push</button>
+    <button onclick="pop()"  id="pop">Pop</button>
 	<button onclick="function1()">Increase size by 1</button>
 	<button onclick="create_stack(5)">Create Stack</button>
 	<script type="text/javascript">
 		var c = document.getElementById("myCanvas");
 		var ctx = c.getContext("2d");
-		ctx.rect(20, 20, 150, 100);
+		ctx.rect(20, 20, 40, 40);
 		ctx.stroke();
 		var size = 0;
 		var current = 0
 		function push()
 		{
 			var num = document.getElementById("textbox").value;
-			ctx.fillText(num, 20+75, 70);
+            ctx.textAlign="center"
+            ctx.textBaseline="middle"
+			ctx.fillText(num, 20+20+(40*current), 41);
+			current = current+1
+		}
+		function pop()
+       {
+            current-=1;
+            ctx.textAlign="center"
+            ctx.textBaseline="middle"
+            //ctx.fillStyle = '#0xffffff';
+            ctx.clearRect(20+(40*current),20,40,40);
+			ctx.rect(20+40*(current), 20, 40, 40);
+            ctx.stroke();
+			//ctx.fillText("#0fffff", 20+20+(40*current), 41);
 		}
 		function create_stack(n){
 				size = n;
 				for (var i = n; i > 0; i--) {
 					var c = document.getElementById("myCanvas");
 					var ctx = c.getContext("2d");
-					ctx.rect(20+150*(i-1), 20, 150, 100);
+					ctx.rect(20+40*(i-1), 20, 40, 40);
 					ctx.stroke();
 					// ctx.fillText("24", 20+75, 70);
 				}
@@ -46,7 +61,7 @@
 				// }
 					var c = document.getElementById("myCanvas");
 					var ctx = c.getContext("2d");
-					ctx.rect(20+150*(size), 20, 150, 100);
+					ctx.rect(20+40*(size), 20, 40, 40);
 					ctx.stroke();
 					size = size+1
 				// var c = document.getElementById("myCanvas");
