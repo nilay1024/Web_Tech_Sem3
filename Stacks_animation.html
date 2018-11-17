@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<!-- <title></title> -->
+	<title>HAN - An interactive way to learn data structures</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="cardStyle.css">
+    <link rel="stylesheet" href="rowColumn.css">
+    <link rel="stylesheet" href="bodystyle.css">
+    <link rel="stylesheet" href="home1.css">
+
+    <body class="body">
+    <div class="content">
+
+	<h2 align="center">	<font color="#146827"> <img src="logo.jpg" align="left" height = "50px" width="250px">
+	   <br><i><br></i></h2></font>
+	<div class="navbar">
+	  <a href="front_page.html">Home</a>
+	  <a href="#news">News</a>
+	  <a href="#">About Us</a>
+	  <div class="dropdown">
+	    <button class="dropbtn">Dropdown
+	      <i class="fa fa-caret-down"></i>
+	    </button>
+	    <div class="dropdown-content">
+	      <a href="linked_list.html">Linked list</a>
+	      <a href="graphs.html">Graphs</a>
+	      <a href="trees.html">Trees</a>
+	    </div>
+	  </div>
+	  <a href="hello.php">Feedback</a>
+	</div>
+
 </head>
 <body>
+	<h2>Array Implementation</h2>
 	<div id = "div1"><!-- Initial text -->
-		<canvas id="myCanvas" width="1000" height="150" style="border:1px solid #d3d3d3;">
+		<canvas id="myCanvas" width="1000" height="120" style="border:1px solid #d3d3d3;">
 		Your browser does not support the HTML5 canvas tag.</canvas>
 	</div> <br><br>
 	<input type="Text" name="textbox" id="textbox">
@@ -13,8 +43,21 @@
 	<button onclick="push()" id="push_a">Push</button>
     <button onclick="pop()"  id="pop">Pop</button>
 	<button onclick="function1()">Increase size by 1</button>
-	<button onclick="create_stack(5)">Create Stack</button>
-	<script type="text/javascript">
+	<button onclick="create_stack(5)">Create Stack</button><br><br><br><br><br><br><br>
+
+
+	<h2>Linked list Implementation</h2>
+	<div id = "div2"><!-- Initial text -->
+		<canvas id="myCanvas1" width="1000" height="120" style="border:1px solid #d3d3d3;">
+		Your browser does not support the HTML5 canvas tag.</canvas>
+	</div> <br><br>
+		<input type="Text" name="textbox1" id="textbox1">
+		</input>
+		<button onclick="insert()" id="insert_a">Push</button>
+    	<button onclick="remove()"  id="remove">Pop</button>
+
+		<script type="text/javascript">
+
 		var c = document.getElementById("myCanvas");
 		var ctx = c.getContext("2d");
 		ctx.rect(20, 20, 40, 40);
@@ -51,24 +94,94 @@
 				}
 		}
 		function function1(){
-				// size = size+1;
-				// for (var i = size; i >= 0; i--) {
-				// 	var c = document.getElementById("myCanvas");
-				// 	var ctx = c.getContext("2d");
-				// 	ctx.rect(20+150*(i-1), 20, 150, 100);
-				// 	ctx.stroke();
-				// 	// ctx.fillText("24", 20+75, 70);
-				// }
-					var c = document.getElementById("myCanvas");
-					var ctx = c.getContext("2d");
-					ctx.rect(20+40*(size), 20, 40, 40);
-					ctx.stroke();
-					size = size+1
-				// var c = document.getElementById("myCanvas");
-				// var ctx = c.getContext("2d");
-				// ctx.rect(20+150*n, 20, 150, 100);
-				// ctx.stroke();
-			// document.getElementById("div1").innerHTML = "Modified Text"
+			var c = document.getElementById("myCanvas");
+			var ctx = c.getContext("2d");
+			ctx.rect(20+40*(size), 20, 40, 40);
+			ctx.stroke();
+			size = size+1
+		}
+
+		// Linked list implementation
+		var c = document.getElementById("myCanvas1");
+		var ctx = c.getContext("2d");
+		var arr = new Array();
+		ctx.rect(20, 20, 40, 40);
+		ctx.stroke();
+        ctx.textAlign="center"
+        ctx.textBaseline="middle"
+		ctx.fillText("Head", 40, 41);
+		var size = 0;
+		var current = 0
+		var list_size = 0
+
+		function create_arrow(){
+			var len = 60;
+			var formx = 
+			ctx.moveTo()
+		}
+
+		function populate()
+		{
+			var c1 = document.getElementById("myCanvas1");
+			var ctx1 = c1.getContext("2d");
+			ctx1.beginPath();
+			ctx1.clearRect(0, 0, 1000, 150);
+			ctx1.rect(20, 20, 40, 40);
+			ctx1.fillText("Head", 40, 41);
+			ctx1.moveTo(60, 40);
+			ctx1.lineTo(100, 40);
+			ctx1.stroke();
+			for (var i = 0; i < list_size; i++) {
+				ctx1.textAlign="center"
+            	ctx1.textBaseline="middle"
+            	ctx1.rect(100+40*(3*i), 20, 40, 40);
+				ctx1.rect(100+40*(3*i+1), 20, 40, 40);
+				ctx1.stroke()
+				ctx1.beginPath();
+				var angle = Math.atan2(0, 1);
+				var headlen = 10;
+				ctx1.moveTo(120+40*(3*i+1), 40);
+				ctx1.lineTo(120+40*(3*i+1)+60, 40);
+				ctx1.lineTo((120+40*(3*i+1)+60)-headlen*Math.cos(angle-Math.PI/6),40-headlen*Math.sin(angle-Math.PI/6));
+				ctx1.moveTo(120+40*(3*i+1)+60, 40);
+				ctx1.lineTo((120+40*(3*i+1)+60)-headlen*Math.cos(angle+Math.PI/6),40-headlen*Math.sin(angle+Math.PI/6));
+				ctx1.stroke();
+				ctx1.fillText(arr[i], 120+(120*i), 41);
+			}
+			ctx1.fillText("NULL", 120+(120*i), 41);
+		}
+
+		function populate_r()
+		{
+			var c1 = document.getElementById("myCanvas1");
+
+			var ctx1 = c1.getContext("2d");
+			ctx1.beginPath();
+			ctx1.clearRect(0, 0, 1000, 120);
+			ctx1.rect(20, 20, 40, 40);
+			ctx1.fillText("Head", 40, 41);
+			ctx1.stroke()
+		}
+
+		function remove()
+		{
+			arr.splice(list_size-1, 1);
+			list_size = list_size-1;
+			// var num = document.getElementById("textbox1").value;
+			// var index = arr.indexOf(num);
+			// if (index > -1) {
+  	// 			arr.splice(index, 1);
+  	// 			list_size = list_size-1;
+			// }
+			populate()
+		}
+
+		function insert()
+		{
+			var num = document.getElementById("textbox1").value;
+			arr.push(num);
+			list_size = list_size+1;
+			populate();
 		}
 	</script>
 </body>
