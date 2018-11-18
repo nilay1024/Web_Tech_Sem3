@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <title>HAN - An interactive way to learn data structures</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="cardStyle.css">
+    <link rel="stylesheet" href="rowColumn.css">
+    <link rel="stylesheet" href="bodystyle.css">
+    <link rel="stylesheet" href="home1.css">
+
+    <body class="body">
+    <div class="content">
+
+	<h2 align="center">	<font color="#146827"> <img src="logo.jpg" align="left" height = "50px" width="250px">
+	   <br><i><br></i></h2></font>
+	<div class="navbar">
+	  <a href="front_page.html">Home</a>
+	  <a href="https://github.com/nilay1024/Web_Tech_Sem3/commits/master">Commits</a>
+	  <a href="#">About Us</a>
+	  <div class="dropdown">
+	    <button class="dropbtn">Dropdown
+	      <i class="fa fa-caret-down"></i>
+	    </button>
+	    <div class="dropdown-content">
+	      <a href="linked_list_animation.html">Linked list</a>
+	      <a href="graphs.html">Graphs</a>
+	      <a href="trees.html">Trees</a>
+	    </div>
+	  </div>
+	  <a href="hello.php">Feedback</a>
+      <a href="login.html">Login/Register</a>
+	</div>
+
+    <form action="register.php" method="post">
+        <div class="container">
+        	Enter your details : <br>
+
+        	<label for="clientname"><b>Name</b></label>
+        	<input type="text" placeholder="Enter Name" name="clientname" value="clientname" required>
+        	<span class="error">* <?php echo $clientnameErr;?></span>
+
+        	<label for="email"><b>Email-id</b></label>
+        	<input type="text" placeholder="Enter Email-id" name="email" required>
+        	<span class="error">* <?php echo $emailErr;?></span>
+
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            <span class="error">* <?php echo $unameErr;?></span>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Min 8 chars, alphanumeric + underscore only" name="psw" required>
+            <span class="error">* <?php echo $pswErr;?></span>
+
+            <button type="submit">Register</button>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <span class="psw"><a href="login.html">Already have an account?</a></span>
+        </div>
+    </form>
+
+	</body>
+</html>
