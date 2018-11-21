@@ -54,6 +54,8 @@
     $username = "root";
     $password = "1234";
     $dbname = "feedbacks";
+    // $password = "";
+    // $dbname = "Users";
 
     // // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -113,7 +115,7 @@
     if($done==1){
       $done=0;
       // header('Location: login_redirect.html');
-      header('Location: login - Copy.php');
+      header('Location: login_created.php');
     }
   ?>
 

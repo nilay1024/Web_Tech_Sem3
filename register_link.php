@@ -10,23 +10,23 @@
     <body class="body">
     <div class="content">
 
-    <h2 align="center"> <font color="#146827"> <img src="logo.jpg" align="left" height = "50px" width="250px">
-       <br><i><br></i></h2></font>
-    <div class="navbar">
-      <a href="front_page.php">Home</a>
-      <a href="https://github.com/nilay1024/Web_Tech_Sem3/commits/master">Commits</a>
-      <a href="#">About Us</a>
-      <div class="dropdown">
-        <button class="dropbtn">Dropdown
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="linked_list_animation.html">Linked list</a>
-          <a href="graphs.html">Graphs</a>
-          <a href="trees.html">Trees</a>
-        </div>
-      </div>
-      <a href="hello.php">Feedback</a>
+	<h2 align="center">	<font color="#146827"> <img src="logo.jpg" align="left" height = "50px" width="250px">
+	   <br><i><br></i></h2></font>
+	<div class="navbar">
+	  <a href="front_page.php">Home</a>
+	  <a href="https://github.com/nilay1024/Web_Tech_Sem3/commits/master">Commits</a>
+	  <a href="#">About Us</a>
+	  <div class="dropdown">
+	    <button class="dropbtn">Dropdown
+	      <i class="fa fa-caret-down"></i>
+	    </button>
+	    <div class="dropdown-content">
+	      <a href="linked_list_animation.html">Linked list</a>
+	      <a href="graphs.html">Graphs</a>
+	      <a href="trees.html">Trees</a>
+	    </div>
+	  </div>
+	  <a href="hello.php">Feedback</a>
       <a href="login - Copy.php">Login/Register</a>
 
 
@@ -64,27 +64,31 @@
         </div>
       </div>
 
-      
-    </div>
+	</div>
 
-    <form action="login.php" method="post" name="main" onsubmit="return validateForm(this)">
+    <form action="register.php" method="post">
         <div class="container">
+        	Enter your details : <br>
+
+        	<label for="clientname"><b>Name</b></label>
+        	<input type="text" placeholder="Enter Name" name="clientname" required>
+
+        	<label for="email"><b>Email-id</b></label>
+        	<input type="text" placeholder="Enter Email-id" name="email" required>
+
             <label for="uname"><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="uname" required>
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <input type="password" placeholder="Enter password" name="psw" required>
 
-            <button type="submit">Login</button>
-<!--             <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
-            </label> -->
+            <button type="submit">Register</button>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <span class="psw"><a href="login - Copy.php">Already have an account?</a></span>
         </div>
     </form>
-    
-    <div class="container" style="background-color:#f1f1f1">
-            <span class="psw"><a href="register_link.php">New User?</a></span>
-    </div>
 
-    </body>
+	</body>
 </html>

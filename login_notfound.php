@@ -1,24 +1,5 @@
+<!DOCTYPE html>
 <html>
-	<?php
-        $servername = "localhost";
-        $username = "root";
-        // $password = "";
-        // $dbname = "Users";
-        $password = "1234";
-        $dbname = "Feedback"
-
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        } 
-
-        $sql = "UPDATE LoggedDetailsTemp SET LoggedIn = 0";
-	    $conn->query($sql);
-        $conn->close();
-    ?>
     <title>HAN - An interactive way to learn data structures</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="cardStyle.css">
@@ -29,24 +10,26 @@
     <body class="body">
     <div class="content">
 
-    <h2 align="center"> <font color="#146827"> <img src="logo.jpg" align="left" height = "50px" width="250px">
-       <br><i><br></i></h2></font>
-    <div class="navbar">
-      <a href="front_page.php">Home</a>
-      <a href="https://github.com/nilay1024/Web_Tech_Sem3/commits/master">Commits</a>
-      <a href="#">About Us</a>
-      <div class="dropdown">
-        <button class="dropbtn">Dropdown
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="linked_list_animation.html">Linked list</a>
-          <a href="graphs.html">Graphs</a>
-          <a href="trees.html">Trees</a>
-        </div>
-      </div>
-      <a href="hello.php">Feedback</a>
+	<h2 align="center">	<font color="#146827"> <img src="logo.jpg" align="left" height = "50px" width="250px">
+	   <br><i><br></i></h2></font>
+	<div class="navbar">
+	  <a href="front_page.php">Home</a>
+	  <a href="https://github.com/nilay1024/Web_Tech_Sem3/commits/master">Commits</a>
+	  <a href="#">About Us</a>
+	  <div class="dropdown">
+	    <button class="dropbtn">Dropdown
+	      <i class="fa fa-caret-down"></i>
+	    </button>
+	    <div class="dropdown-content">
+	      <a href="linked_list_animation.html">Linked list</a>
+	      <a href="graphs.html">Graphs</a>
+	      <a href="trees.html">Trees</a>
+	    </div>
+	  </div>
+	  <a href="hello.php">Feedback</a>
       <a href="login - Copy.php">Login/Register</a>
+      <a href="#">
+      </a>
       <div class="dropdown" align = "right">
         <button class="dropbtn">
             <?php
@@ -70,7 +53,11 @@
                 $result = $conn->query($sql);
 
                 $row = $result->fetch_assoc();
-                echo $row["Clientname"];
+                $name = $row["Clientname"];
+                if(strlen($name)==0){
+                    echo '<script>alert("User not found.")</script>';
+                }
+                echo $name;
                 $conn->close();    
             ?>
           <i class="fa fa-caret-down"></i>
@@ -79,7 +66,7 @@
             <a href="logout.php">Log Out</a>
         </div>
       </div>
-    </div>
+	</div>
 
     <form action="login.php" method="post" name="main" onsubmit="return validateForm(this)">
         <div class="container">

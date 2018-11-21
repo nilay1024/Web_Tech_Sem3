@@ -1,24 +1,12 @@
+<!DOCTYPE html>
 <html>
-	<?php
-        $servername = "localhost";
-        $username = "root";
-        // $password = "";
-        // $dbname = "Users";
-        $password = "1234";
-        $dbname = "Feedback"
 
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
+    <head>
+        <script>
+            alert("Account created successfully. Login with your details to proceed.")
+        </script>
+    </head>
 
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        } 
-
-        $sql = "UPDATE LoggedDetailsTemp SET LoggedIn = 0";
-	    $conn->query($sql);
-        $conn->close();
-    ?>
     <title>HAN - An interactive way to learn data structures</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="cardStyle.css">
@@ -47,15 +35,17 @@
       </div>
       <a href="hello.php">Feedback</a>
       <a href="login - Copy.php">Login/Register</a>
+
+      
       <div class="dropdown" align = "right">
         <button class="dropbtn">
             <?php
                 $servername = "localhost";
                 $username = "root";
-                //$password = "1234";
-                //$dbname = "feedbacks";
-                $password = "";
-                $dbname = "Users";
+                $password = "1234";
+                $dbname = "feedbacks";
+                //$password = "";
+                //$dbname = "Users";
 
 
                 // // Create connection
@@ -70,7 +60,8 @@
                 $result = $conn->query($sql);
 
                 $row = $result->fetch_assoc();
-                echo $row["Clientname"];
+                $name = $row["Clientname"];
+                echo $name;
                 $conn->close();    
             ?>
           <i class="fa fa-caret-down"></i>

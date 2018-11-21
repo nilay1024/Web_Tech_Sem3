@@ -10,7 +10,9 @@
 	    $servername = "localhost";
 	    $username = "root";
 	    $password = "1234";
+	    //$password = "";
 	    $db = "feedbacks";
+	    //$db = "Users";
 
 	    //Create connection - SQL starts here
 	    $conn = new mysqli($servername, $username, $password, $db);
@@ -31,7 +33,7 @@
 			$psw = test_input($_POST["psw"]);
       	}
 
-		header('Location: login - Copy.php');		//Return back to login.html if no match of username is found
+		header('Location: login_notfound.php');		//Return back to login.html if no match of username is found
 
 	    if ($result->num_rows > 0) {
 	      // Validating user
@@ -48,7 +50,7 @@
 	      			//Redirect to new updated login page!
 	      		}
 	      		else{
-	      			header('Location: login_fail.html');
+	      			header('Location: login_fail.php');
 	      			//Redirect to a login page which says wrong password!
 	      		}
 	      	}
