@@ -35,8 +35,8 @@
             <?php
                 $servername = "localhost";
                 $username = "root";
-                $password = "";
-                $dbname = "Users";
+                $password = "1234";
+                $dbname = "feedbacks";
 
                 // // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -56,7 +56,7 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" >
-            <a href="#">Log Out</a>
+            <a href="login.php">Log Out</a>
         </div>
       </div>
 	</div>

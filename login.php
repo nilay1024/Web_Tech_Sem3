@@ -9,8 +9,8 @@
 
 	    $servername = "localhost";
 	    $username = "root";
-	    $password = "";
-	    $db = "Users";
+	    $password = "1234";
+	    $db = "feedbacks";
 
 	    //Create connection - SQL starts here
 	    $conn = new mysqli($servername, $username, $password, $db);
