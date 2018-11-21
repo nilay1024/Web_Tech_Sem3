@@ -1,6 +1,5 @@
 <html>
 	<?php
-
     	function test_input($data) {
 	        $data = trim($data);
 	        $data = stripslashes($data);
@@ -8,27 +7,9 @@
 	        return $data;
         }
 
-        $uname = $psw = "";
-
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-      		if (empty($_POST["uname"])) {
-        		$unameErr = "Username is required";
-     	 	} else {
-        		$uname = test_input($_POST["uname"]);
-      		}
-
-      		if (empty($_POST["psw"])) {
-        		$pswErr = "";
-      		} else {
-        		$psw = test_input($_POST["psw"]);
-      		}
-    	}
-
-
 	    $servername = "localhost";
 	    $username = "root";
-	    $password = "1234";
+	    $password = "";
 	    $db = "Users";
 
 	    //Create connection - SQL starts here
@@ -40,23 +21,39 @@
 	    } 
 
 	    $UserFound = 0;
-		$sql = "SELECT id, ClientName, Username, Email, Password FROM Details";
+		$sql = "SELECT id, Clientname, Username, Email, Password, LoggedIn FROM LoggedDetailsTemp";
     	$result = $conn->query($sql);
+
+        $uname = $psw = "";
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        	$uname = test_input($_POST["uname"]);
+			$psw = test_input($_POST["psw"]);
+      	}
+
+		header('Location: login - Copy.php');		//Return back to login.html if no match of username is found
 
 	    if ($result->num_rows > 0) {
 	      // Validating user
 	      while($row = $result->fetch_assoc()) {
-	        //echo "id: " . $row["id"]. " - Name: " . $row["ClientName"]. " Username: " . $row["Username"]. " Password: " . $row["Password"]."<br>";
 	      	if($row["Username"]==$uname){
 	      		$UserFound = 1;
 	      		if($row["Password"]==$psw){
-	      			header('Location: login.html'); //Note - this line should include the logged in page!
+	      			$sql = "UPDATE LoggedDetailsTemp SET LoggedIn = 0";
+	      			$conn->query($sql);
+	      			$sql = "UPDATE LoggedDetailsTemp SET LoggedIn = 1 WHERE Username='".$uname."' ";
+	      			$conn->query($sql);
+	      			//header('Location: login_success.html');
+	      			//Note - this line should include the logged in page!
+	      			//Redirect to new updated login page!
+	      		}
+	      		else{
+	      			header('Location: login_fail.html');
+	      			//Redirect to a login page which says wrong password!
 	      		}
 	      	}
 	      }
-	    } else {
-	    	if($UserFound == 0)
-	      		header('Location: login_failed_noUser.html');
-	      	else
-	      		header('Location: login_failed_wrongPsw.html')
-	    }
+	    $conn->close();
+	    }    
+	?>
+</html>

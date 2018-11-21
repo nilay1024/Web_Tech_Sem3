@@ -1,30 +1,5 @@
 <!DOCTYPE html>
 <html>
-
-
-    <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "Users";
-
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        } 
-
-        $sql = "SELECT Clientname, Username FROM LoggedDetailsTemp where LoggedIn = 1";
-        $result = $conn->query($sql);
-
-        $row = $result->fetch_assoc();
-        echo "Welcome ".$row["Clientname"];
-        $conn->close();
-        }    
-    ?>
-
     <title>HAN - An interactive way to learn data structures</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="cardStyle.css">
@@ -53,6 +28,37 @@
 	  </div>
 	  <a href="hello.php">Feedback</a>
       <a href="login.html">Login/Register</a>
+      <a href="#">
+      </a>
+      <div class="dropdown" align = "right">
+        <button class="dropbtn">
+            <?php
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "Users";
+
+                // // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                } 
+
+                $sql = "SELECT Clientname, Username FROM LoggedDetailsTemp where LoggedIn = 1";
+                $result = $conn->query($sql);
+
+                $row = $result->fetch_assoc();
+                echo $row["Clientname"];
+                $conn->close();    
+            ?>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" >
+            <a href="#">Log Out</a>
+        </div>
+      </div>
 	</div>
 
     <form action="login.php" method="post">

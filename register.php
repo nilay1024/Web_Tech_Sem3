@@ -22,7 +22,6 @@
       } else {
         $uname = test_input($_POST["uname"]);
       }
-
       if (empty($_POST["email"])) {
         $emailErr = "";
       } else {
@@ -45,15 +44,18 @@
     }
 
     if (!preg_match("/^[a-zA-Z_0-9]*$/",$psw)) {
-      $pswErr = "Password has to be alphanumeric"; 
+      $pswErr = "Password has to be alphanumeric";
+      "<script>
+        alert('Password has to be alphanumeric')
+      </script>";
     }
 
     $servername = "localhost";
     $username = "root";
-    $password = "1234";
+    $password = "";
     $dbname = "Users";
 
-    // Create connection
+    // // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Check connection
@@ -61,57 +63,57 @@
         die("Connection failed: " . $conn->connect_error);
     } 
 
-    // sql to create table
+    //sql to create table
 
-    $sql = "CREATE TABLE Details (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    ClientName VARCHAR(30) NOT NULL,
-    Username VARCHAR(30) NOT NULL,
-    Email VARCHAR(50),
-    Password VARCHAR(50)
-    )";
+    // $sql = "CREATE TABLE LoggedDetailsTemp (
+    // id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+    // ClientName VARCHAR(30) NOT NULL,
+    // Username VARCHAR(30) NOT NULL,
+    // Email VARCHAR(50),
+    // Password VARCHAR(50),
+    // LoggedIn BOOL
+    // )";
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Table created successfully";
-    } else {
-        echo "Error creating table: " . $conn->error;
-    }
+    // if ($conn->query($sql) === TRUE) {
+    //     echo "Table created successfully";
+    // } else {
+    //     echo "Error creating table: " . $conn->error;
+    // }
 
     $done=0;
 
-    // $sql = "INSERT INTO Details (ClientName, Username, Email, Password)
-    // VALUES ('$clientname', '$uname', '$email', '$psw')";
+    $sql = "INSERT INTO LoggedDetailsTemp (ClientName, Username, Email, Password, LoggedIn)
+    VALUES ('$clientname', '$uname', '$email', '$psw', 'FALSE')";
 
-    // if ($conn->query($sql) === TRUE) {
-    //     echo "New record created successfully";
-    //     $done=1;
-    // } else {
-    //     echo "Error: " . $sql . "<br>" . $conn->error;
-    // }
+    if ($conn->query($sql) === TRUE) {
+        echo "New user created successfully";
+        $done=1;
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 
     //To view the table
 
-    /*
-    $sql = "SELECT id, ClientName, Username, Email, Password FROM Details";
-    $result = $conn->query($sql);
+    
+    // $sql = "SELECT id, ClientName, Username, Email, Password FROM Details";
+    // $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-      // output data of each row
-      while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["ClientName"]. " Username: " . $row["Username"]. " Password: " . $row["Password"]."<br>";
-      }
-    } else {
-      echo "0 results";
-    }
+    // if ($result->num_rows > 0) {
+    //   // output data of each row
+    //   while($row = $result->fetch_assoc()) {
+    //     echo "id: " . $row["id"]. " - Name: " . $row["ClientName"]. " Username: " . $row["Username"]. " Password: " . $row["Password"]."<br>";
+    //   }
+    // } else {
+    //   echo "0 results";
+    // }
 
-    */
+    
     $conn->close();
 
     if($done==1){
       $done=0;
-        "<script>alert('Registered Successfully. Login with your newly created credentials.')</script>";
+      // header('Location: login_redirect.html');
+      header('Location: login - Copy.php');
     }
-
-    header('Location: login_redirect.html');
   ?>
 
