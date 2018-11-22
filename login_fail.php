@@ -19,7 +19,7 @@
 	<h2 align="center">	<font color="#146827"> <img src="logo.jpg" align="left" height = "50px" width="250px">
 	   <br><i><br></i></h2></font>
 	<div class="navbar">
-	  <a href="front_page.php">Home</a>
+	  <a href="front_page.html">Home</a>
 	  <a href="https://github.com/nilay1024/Web_Tech_Sem3/commits/master">Commits</a>
 	  <a href="#">About Us</a>
 	  <div class="dropdown">

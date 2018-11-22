@@ -2,9 +2,9 @@
 <html>
     <title>HAN - An interactive way to learn data structures</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="cardStyle.css">
-    <link rel="stylesheet" href="rowColumn.css">
-    <link rel="stylesheet" href="bodystyle.css">
+    <link rel="stylesheet" href="webStyle.css">
+    <!-- <link rel="stylesheet" href="rowColumn.css"> -->
+    <!-- <link rel="stylesheet" href="bodystyle.css"> -->
     <link rel="stylesheet" href="home1.css">
 
     <body class="body">
@@ -13,7 +13,7 @@
     <h2 align="center"> <font color="#146827"> <img src="logo.jpg" align="left" height = "50px" width="250px">
        <br><i><br></i></h2></font>
     <div class="navbar">
-      <a href="front_page.php">Home</a>
+      <a href="front_page.html">Home</a>
       <a href="https://github.com/nilay1024/Web_Tech_Sem3/commits/master">Commits</a>
       <a href="#">About Us</a>
       <div class="dropdown">
