@@ -1,0 +1,62 @@
+.body{
+   background-image:url("149042-636270893746801661-16x9.jpg");
+   background-attachment: fixed;
+}
+
+/*four colums side by side*/
+.column{
+    float: left;
+    width: 33%;
+}
+
+/* Remove extra left and right margins, due to padding */
+.cardRow {
+    margin-left:60px;
+    margin-right:60px;
+}
+
+/* Clear floats after the columns */
+.cardRow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.content{
+    max-width: 1240px;
+    margin: auto;
+}
+
+/* Responsive columns */
+/*@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 50px;
+  }*/
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 90%;
+    padding: 10px;
+    float: left;
+    margin: 10px;
+}
+.card:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,8,0.8,0.2);
+}
+.container{
+    padding: 4px 50px;
+    text-align: center;
+    color:#1ba94c; /*material green, I think..lol*/
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.img-style{
+    position: relative;
+    width:100%;
+    height:200px;
+    background-color:lightgrey;
+}
