@@ -17,14 +17,14 @@
       <a href="https://github.com/nilay1024/Web_Tech_Sem3/commits/master">Commits</a>
       <a href="#">About Us</a>
       <div class="dropdown">
-        <button class="dropbtn">Dropdown
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="linked_list_animation.html">Linked list</a>
-          <a href="graphs.html">Graphs</a>
-          <a href="trees.html">Trees</a>
-        </div>
+	  <button class="dropbtn">Data Structures
+	      <i class="fa fa-caret-down"></i>
+	    </button>
+	    <div class="dropdown-content">
+	      <a href="linked_list_animation.html">Linked list</a>
+	      <a href="Stacks_animation.html">Stacks</a>
+	      <a href="queue-animations.html">Queues</a>
+	    </div>
       </div>
       <a href="hello.php">Feedback</a>
       <a href="login - Copy.php">Login/Register</a>
@@ -52,9 +52,9 @@
 
                 $row = $result->fetch_assoc();
                 $name = $row["Clientname"];
-                if(strlen($name)==0){
-                    echo '<script>alert("User not found.")</script>';
-                }
+                // if(strlen($name)==0){
+                //     echo '<script>alert("User not found.")</script>';
+                // }
                 echo $name;
                 $conn->close();    
             ?>
