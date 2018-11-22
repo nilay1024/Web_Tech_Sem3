@@ -38,7 +38,7 @@
 	<input type="Text" name="textbox" id="textbox">
 	</input>
 	<button onclick="insert()" id="insert_a">Insert</button>
-    <button onclick="remove()"  id="remove">Remove/Dequeue</button>
+    <button onclick="remove()"  id="remove">Delete</button>
 	<!-- <button onclick="function1()">Increase size by 1</button> -->
 	<!-- <button onclick="create_list(5)">Create list</button> -->
 	<!-- <button onclick="clear()"></button> -->
@@ -72,12 +72,17 @@
 		{
 			var c1 = document.getElementById("myCanvas");
 			var ctx1 = c1.getContext("2d");
+			var angle = Math.atan2(0, 1);
+			var headlen = 10;
 			ctx1.beginPath();
 			ctx1.clearRect(0, 0, 1000, 150);
 			ctx1.rect(20, 20, 40, 40);
 			ctx1.fillText("Head", 40, 41);
 			ctx1.moveTo(60, 40);
 			ctx1.lineTo(100, 40);
+			ctx1.lineTo((100)-headlen*Math.cos(angle-Math.PI/6),40-headlen*Math.sin(angle-Math.PI/6));
+			ctx1.moveTo(100, 40);
+			ctx1.lineTo((100)-headlen*Math.cos(angle+Math.PI/6),40-headlen*Math.sin(angle+Math.PI/6));
 			ctx1.stroke();
 			// for (var i = list_size; i > 0; i--) {
 				// var c = document.getElementById("myCanvas");
